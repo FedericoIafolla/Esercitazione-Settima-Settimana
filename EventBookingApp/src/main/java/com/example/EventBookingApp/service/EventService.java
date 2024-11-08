@@ -28,9 +28,9 @@ public class EventService {
         return eventRepository.findById(eventId);
     }
 
-    public Event updateEvent(Event event, Long eventId) {
+    public Event updateEvent(Event event, Long eventId, App organizer) {
         Optional<Event> existingEvent = eventRepository.findById(eventId);
-        if (existingEvent.isPresent() && existingEvent.get().getOrganizer().equals(event.getOrganizer())) {
+        if (existingEvent.isPresent() && existingEvent.get().getOrganizer().equals(organizer)) {
             existingEvent.get().setTitle(event.getTitle());
             existingEvent.get().setDescription(event.getDescription());
             existingEvent.get().setDate(event.getDate());

@@ -33,4 +33,20 @@ public class EventController {
         App organizer = userService.findByUsername(username).orElseThrow(() -> new RuntimeException("User not found"));
         return eventService.createEvent(event, organizer);
     }
+
+    @PutMapping("/{id}")
+    public Event updateEvent(@PathVariable Long id, @RequestBody Event event) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = userDetails.getUsername();
+        App organizer = userService.findByUsername(username).orElseThrow(() -> new RuntimeException("User not found"));
+        return eventService.updateEvent(event, id, organizer);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteEvent(@PathVariable Long id) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = userDetails.getUsername();
+        App organizer = userService.findByUsername(username).orElseThrow(() -> new RuntimeException("User not found"));
+        eventService.deleteEvent(id, organizer);
+    }
 }

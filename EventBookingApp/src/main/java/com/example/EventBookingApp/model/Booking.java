@@ -9,7 +9,7 @@ public class Booking {
     private Long id;
 
     @ManyToOne
-    private User user;
+    private App user;
 
     @ManyToOne
     private Event event;
@@ -22,11 +22,11 @@ public class Booking {
         this.id = id;
     }
 
-    public User getUser() {
+    public App getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(App user) {
         this.user = user;
     }
 

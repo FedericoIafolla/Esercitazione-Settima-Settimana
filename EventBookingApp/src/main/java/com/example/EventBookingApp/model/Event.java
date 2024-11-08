@@ -16,7 +16,7 @@ public class Event {
     private int availableSeats;
 
     @ManyToOne
-    private User organizer;
+    private App organizer;
 
     @OneToMany(mappedBy = "event")
     private List<Booking> bookings;
@@ -69,11 +69,11 @@ public class Event {
         this.availableSeats = availableSeats;
     }
 
-    public User getOrganizer() {
+    public App getOrganizer() {
         return organizer;
     }
 
-    public void setOrganizer(User organizer) {
+    public void setOrganizer(App organizer) {
         this.organizer = organizer;
     }
 
