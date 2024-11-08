@@ -20,7 +20,7 @@ public class Event {
 
     @OneToMany(mappedBy = "event")
     private List<Booking> bookings;
-    
+
     public Long getId() {
         return id;
     }
