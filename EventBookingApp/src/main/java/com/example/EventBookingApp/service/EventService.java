@@ -38,7 +38,7 @@ public class EventService {
             existingEvent.get().setAvailableSeats(event.getAvailableSeats());
             return eventRepository.save(existingEvent.get());
         }
-        throw new RuntimeException("Event not found or user is not the organizer");
+        throw new RuntimeException("Evento non trovato o l'utente non è l'organizzatore");
     }
 
     public void deleteEvent(Long eventId, App organizer) {
@@ -46,7 +46,7 @@ public class EventService {
         if (event.isPresent() && event.get().getOrganizer().equals(organizer)) {
             eventRepository.delete(event.get());
         } else {
-            throw new RuntimeException("Event not found or user is not the organizer");
+            throw new RuntimeException("Evento non trovato o l'utente non è l'organizzatore");
         }
     }
 }

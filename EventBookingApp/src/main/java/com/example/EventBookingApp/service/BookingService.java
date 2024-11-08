@@ -29,7 +29,7 @@ public class BookingService {
             eventRepository.save(event);
             return bookingRepository.save(booking);
         }
-        throw new RuntimeException("No available seats for this event");
+        throw new RuntimeException("Nessun posto disponibile per questo evento");
     }
 
     public List<Booking> findBookingsByUser(App user) {
@@ -44,7 +44,7 @@ public class BookingService {
             eventRepository.save(event);
             bookingRepository.delete(booking.get());
         } else {
-            throw new RuntimeException("Booking not found or user is not the owner");
+            throw new RuntimeException("Prenotazione non trovata o l'utente non è il proprietario");
         }
     }
 }
