@@ -2,7 +2,6 @@ package com.example.EventBookingApp.controller;
 
 import com.example.EventBookingApp.model.App;
 import com.example.EventBookingApp.security.JwtTokenProvider;
-import com.example.EventBookingApp.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,9 +15,6 @@ public class AuthController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
-
-    @Autowired
-    private CustomUserDetailsService customUserDetailsService;
 
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
